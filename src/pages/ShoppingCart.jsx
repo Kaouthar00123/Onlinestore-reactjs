@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import ShoppingCartItem from "../components/ShoppingCardsPage/ShoppingCartItem";
 import OrderSummary from "../components/ShoppingCardsPage/OrderSummary";
+import { Button } from "flowbite-react";
+import { path } from "..";
+import { Link } from "react-router-dom";
 
 const products = [
   {
@@ -60,7 +63,6 @@ export default function ShoppingCart() {
                   product={product}
                   handeldelete={(id) =>
                     setshoppinglist((prev) => {
-                      console.log("in handeldelete");
                       return prev.filter((e) => {
                         return e.id !== id;
                       });
@@ -72,8 +74,14 @@ export default function ShoppingCart() {
             ))}
           </ul>
         </div>
-        <div id="ordersummary" className="bg-gray-50 w-[35%] mx-[2%]">
-          <OrderSummary />
+        <div
+          id="ordersummary"
+          className="w-[35%] mx-[2%] flex flex-col gap-5 justify-center align-middle items-center"
+        >
+          <OrderSummary className="bg-gray-50" />
+          <Button onClick={(e) => e.preventDefault()}>
+            <Link to={path + "/checkout"}>Proceed to checkout</Link>
+          </Button>
         </div>
       </div>
     </div>

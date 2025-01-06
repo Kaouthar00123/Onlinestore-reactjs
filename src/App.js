@@ -13,6 +13,8 @@ import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
 import ForgetPassword from "./pages/ForgetPassword";
 import ShoppingCart from "./pages/ShoppingCart";
+import SignInLayout from "./Layout/SignInLayout";
+import CategoryProducts from "./pages/CategoryProducts";
 
 export default function App() {
   return (
@@ -20,15 +22,21 @@ export default function App() {
     <Routes>
       <Route path="firstpages" element={<FirstPageLayout />}>
         <Route index element={<Home />} />
-        <Route path="contact" element={<Contact />} />
+        <Route
+          path="categoryproducts/:categoryid"
+          element={<CategoryProducts />}
+        />
         <Route path="productdetails/:productid" element={<ProductDetails />} />
+        <Route path="contact" element={<Contact />} />
         <Route path="shoppingcart" element={<ShoppingCart />} />
         <Route path="checkout" element={<Checkout />} />
       </Route>
       <Route path="sign" element={<SignLayout />}>
-        <Route path="in" element={<SignIn />} />
+        <Route path="in" element={<SignInLayout />}>
+          <Route path="enter" element={<SignIn />} />
+          <Route path="pwd-recovery" element={<ForgetPassword />} />
+        </Route>
         <Route path="up" element={<SignUp />} />
-        <Route path="pwd-recovery" element={<ForgetPassword />} />
         <Route path="*" element={<NoPage />} />
       </Route>
       <Route path="*" element={<NoPage />} />

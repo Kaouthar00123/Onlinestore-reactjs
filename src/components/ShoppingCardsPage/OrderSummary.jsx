@@ -1,4 +1,6 @@
 import React from "react";
+import { path } from "../..";
+import { Link } from "react-router-dom";
 
 const ordersummary = {
   Subtotal: 2427.0,
@@ -12,16 +14,19 @@ const ordersummary = {
   },
 };
 
-export default function OrderSummary() {
+export default function OrderSummary(props) {
   return (
     <div
       id="orderSummary"
-      className="rounded-lg shadow-md p-[5%] h-fit sticky top-[12%] z-100 my-[2%]"
+      className={
+        "w-full rounded-lg shadow-md p-[5%] h-fit sticky top-[12%] z-100 my-[2%]" +
+        props.className
+      }
     >
       <div className="flex justify-between items-center align-middle mb-2">
         <h2 className="">Order summary</h2>
         <span className="text-base text-gray-500 underline cursor-pointer">
-          Edit
+          <Link to={path + "/shoppingcart"}>Edit</Link>
         </span>
       </div>
       <hr className="mb-3" />

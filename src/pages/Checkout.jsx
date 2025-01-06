@@ -8,7 +8,7 @@ export default function Checkout() {
       {/* Form Checkout customer information */}
       <CheckoutForm />
       {/* Order summary */}
-      <div className="w-1/3 bg-gray-100">
+      <div className="w-1/3 h-fit bg-gray-100 sticky top-[12%] z-100 my-[2%]">
         <OrderSummary />
       </div>
     </div>
