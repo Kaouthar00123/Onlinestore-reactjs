@@ -8,10 +8,12 @@ import {
   Textarea,
   TextInput,
   Select,
+  Modal,
 } from "flowbite-react";
 import DeliveryCard from "./DeliveryCard";
 
 export default function CheckoutForm() {
+  const [openpopsuccefull, setopenpopsuccefull] = useState(false);
   const [userinfo, setuserinfo] = useState({
     firstname: "",
     lastname: "",
@@ -471,10 +473,49 @@ export default function CheckoutForm() {
               "\n **extrainfo: ",
               extrainfo
             );
+            setopenpopsuccefull(true);
           }}
         >
           Confirm: Pay $1200
         </Button>
+
+        {/* //Popup add to cart */}
+        <Modal
+          show={openpopsuccefull}
+          size="md"
+          onClose={() => setopenpopsuccefull(false)}
+          popup
+        >
+          <Modal.Header />
+          <Modal.Body>
+            <div className="text-center">
+              <div className="flex justify-center items-center align-middle mb-5">
+                <svg
+                  width="2em"
+                  height="2em"
+                  fill="green"
+                  viewBox="0 0 1024 1024"
+                >
+                  <path d="M912 190h-69.9c-9.8 0-19.1 4.5-25.1 12.2L404.7 724.5 207 474a32 32 0 0 0-25.1-12.2H112c-6.7 0-10.4 7.7-6.3 12.9l273.9 347c12.8 16.2 37.4 16.2 50.3 0l488.4-618.9c4.1-5.1.4-12.8-6.3-12.8z" />
+                </svg>
+              </div>
+              <h3 className="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">
+                Payment sucefully done, thank you for purchase from us
+              </h3>
+              <div className="flex justify-center gap-4">
+                <Button
+                  color="green"
+                  onClick={() => setopenpopsuccefull(false)}
+                >
+                  <a href="#">See the bill</a>
+                </Button>
+                <Button color="gray" onClick={() => setopenpopsuccefull(false)}>
+                  Close
+                </Button>
+              </div>
+            </div>
+          </Modal.Body>
+        </Modal>
       </div>
     </form>
   );

@@ -1,15 +1,15 @@
 import React, { useState } from "react";
 
 export default function ListMenu(props) {
-  const item = props.item;
   const [isOpen, setisOpen] = useState(false);
+  const [valuesselected, setvaluesselected] = useState([]);
   return (
     <div className="relative inline-block">
       <button
         className="btn-filter flex justify-center items-center gap-2"
         onClick={() => setisOpen(!isOpen)}
       >
-        {item.name}
+        {props.item.name}
         <svg
           class="w-2.5 h-2.5 ms-3"
           aria-hidden="true"
@@ -31,16 +31,31 @@ export default function ListMenu(props) {
           isOpen ? "" : "hidden"
         }`}
       >
-        {item.options.map((option, optionIdx) => (
+        {props.item.options.map((option, optionIdx) => (
           <div key={option.value} className="flex gap-3">
             <div className="flex h-5 shrink-0 items-center">
               <div className="group grid size-4 grid-cols-1">
                 <input
                   defaultValue={option.value}
-                  id={`filter-mobile-${item.id}-${optionIdx}`}
-                  name={`${item.id}[]`}
+                  id={`filter-mobile-${props.item.id}-${optionIdx}`}
+                  name={`${props.item.id}[]`}
                   type="checkbox"
                   className="col-start-1 row-start-1 appearance-none rounded border border-gray-300 bg-white checked:border-indigo-300 checked:bg-indigo-300 indeterminate:border-indigo-300 indeterminate:bg-indigo-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-300 disabled:border-gray-300 disabled:bg-gray-100 disabled:checked:bg-gray-100 forced-colors:appearance-auto"
+                  onChange={(e) => {
+                    let prev;
+                    if (e.target.checked)
+                      prev = [...valuesselected, option.value];
+                    else {
+                      prev = valuesselected.filter((x) => {
+                        return x !== option.value;
+                      });
+                    }
+                    setvaluesselected(prev);
+                    props.setfilterValue((anc) => {
+                      anc[props.item.id] = prev;
+                      return anc;
+                    });
+                  }}
                 />
                 <svg
                   fill="none"
@@ -65,7 +80,7 @@ export default function ListMenu(props) {
               </div>
             </div>
             <label
-              htmlFor={`filter-mobile-${item.id}-${optionIdx}`}
+              htmlFor={`filter-mobile-${props.item.id}-${optionIdx}`}
               className="min-w-0 flex-1 text-gray-500"
             >
               {option.label}

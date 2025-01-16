@@ -1,0 +1,68 @@
+{
+  "shoppingcart": [
+    {
+      "id": "f166",
+      "iduser": 1,
+      "idproduct": "5",
+      "img-url": {
+        "src": "https://cartzilla-html.createx.studio/assets/img/shop/electronics/07.png",
+        "alt": ""
+      },
+      "name": "Gamer Laptop ISSUS",
+      "price": "500$",
+      "qunt": 5,
+      "extras-info": {
+        "color": "black",
+        "size": "XS"
+      }
+    },
+    {
+      "id": "9276",
+      "iduser": 1,
+      "idproduct": "1",
+      "img-url": {
+        "src": "https://flowbite.com/docs/images/products/apple-watch.png",
+        "alt": ""
+      },
+      "name": "Apple Watch Series 6",
+      "price": "500$",
+      "qunt": 2,
+      "extras-info": {
+        "color": "black",
+        "size": "16G"
+      }
+    },
+    {
+      "id": "2118",
+      "iduser": 1,
+      "idproduct": 11,
+      "img-url": {
+        "src": "https://m.media-amazon.com/images/I/51lV1SiVkGL._AC_SX466_.jpg",
+        "alt": ""
+      },
+      "name": "Apple Watch Series 7 (GPS, 45mm) Green Aluminum Case with Clover Sport Band, Regular (Renewed)",
+      "price": "50$",
+      "qunt": 10,
+      "extras-info": {
+        "color": "pink",
+        "size": "8G"
+      }
+    },
+    {
+      "id": "1b19",
+      "iduser": 1,
+      "idproduct": 4,
+      "img-url": {
+        "src": "https://img01.huaweifile.com/sg/ms/sa/pms/uomcdn/SA_HW_B2C/pms/202412/gbom/VFOCX3CASE1/428_428_C5A8DECE8BEA154C01E4DEB4A59B5A38mp.png",
+        "alt": ""
+      },
+      "name": "HUAWEI Mate X6",
+      "price": "255$",
+      "qunt": 2,
+      "extras-info": {
+        "color": "red",
+        "size": "12l"
+      }
+    }
+  ]
+}

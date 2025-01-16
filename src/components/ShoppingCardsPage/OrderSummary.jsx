@@ -1,6 +1,7 @@
-import React from "react";
-import { path } from "../..";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+
+import ThemeContext from "../..";
 
 const ordersummary = {
   Subtotal: 2427.0,
@@ -15,6 +16,8 @@ const ordersummary = {
 };
 
 export default function OrderSummary(props) {
+  const path = useContext(ThemeContext);
+
   return (
     <div
       id="orderSummary"

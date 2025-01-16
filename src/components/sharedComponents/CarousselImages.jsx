@@ -6,14 +6,14 @@ export default function CarousselImages(props) {
   const [zoomIn, setzoomIn] = useState(false);
   return (
     <div
-      className={"h-96 sm:h-96 md:h-[90vh] xl:h-96 2xl:h-96 " + props.className}
+      className={"h-[80vh] sm:h-96 md:h-[90vh] xl:h-[80vh]" + props.className}
     >
-      <Carousel slide={false}>
+      <Carousel slideInterval={1000}>
         {images.map((image) => (
           <img
             src={image.src}
             alt={image.alt}
-            className={`h-full w-full object-scale-down overflow-hidden transition-all ${
+            className={`h-full w-full object-cover overflow-hidden transition-all ${
               zoomIn ? "scale-125 cursor-zoom-out" : "scale-100 cursor-pointer"
             }`}
             onClick={() => setzoomIn(!zoomIn)}

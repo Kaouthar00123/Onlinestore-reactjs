@@ -1,40 +1,48 @@
-import React, { useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import ShoppingCartItem from "../components/ShoppingCardsPage/ShoppingCartItem";
 import OrderSummary from "../components/ShoppingCardsPage/OrderSummary";
 import { Button } from "flowbite-react";
-import { path } from "..";
 import { Link } from "react-router-dom";
+import axios from "axios";
+import ProductPlaceholder from "../components/ProductDetails/ProductPlaceholder";
 
-const products = [
-  {
-    id: 1,
-    name: "Throwback Hip Bag",
-    href: "#",
-    color: "Salmon",
-    price: "90.00",
-    quantity: 1,
-    imageSrc:
-      "https://tailwindui.com/plus/img/ecommerce-images/shopping-cart-page-04-product-01.jpg",
-    imageAlt:
-      "Salmon orange fabric pouch with match zipper, gray zipper pull, and adjustable hip belt.",
-  },
-  {
-    id: 2,
-    name: "Medium Stuff Satchel",
-    href: "#",
-    color: "Blue",
-    price: "32.00",
-    quantity: 1,
-    imageSrc:
-      "https://tailwindui.com/plus/img/ecommerce-images/shopping-cart-page-04-product-02.jpg",
-    imageAlt:
-      "Front of satchel with blue canvas body, black straps and handle, drawstring top, and front zipper pouch.",
-  },
-  // More products...
-];
+import ThemeContext from "..";
+
+const apiUrl = "http://localhost:4001/shoppingcart";
+const deleteelmurl = "http://localhost:4001/shoppingcart";
+
+async function deleteelement(url, id) {
+  axios
+    .delete(`${url}/${id}`)
+    .then((response) => {
+      console.log(
+        `Succes lorsque delete d'elment ${id} dans requete ${url}, status: ${response.status}`
+      );
+      return response;
+    })
+    .catch((error) => {
+      console.log(
+        `err lorsque delete ute d'elment ${id} dans requete ${url}, et errer: ${error}`
+      );
+      return "errer";
+    });
+}
 
 export default function ShoppingCart() {
-  const [shoppinglist, setshoppinglist] = useState(products);
+  const path = useContext(ThemeContext);
+  const [shoppinglist, setshoppinglist] = useState(null);
+  useEffect(() => {
+    axios
+      .get(apiUrl)
+      .then((response) => {
+        console.log("response.data: ", response.data);
+        setshoppinglist(response.data);
+      })
+      .catch((error) => {
+        console.log("error: ", error);
+      });
+  }, []);
+
   return (
     <div className="flex flex-col">
       <h2 className="text-center m-[2%] text-2xl font-semibold">
@@ -57,21 +65,26 @@ export default function ShoppingCart() {
             <hr className="mb-3" />
           </div>
           <ul role="list" className="flex flex-col gap-5">
-            {shoppinglist.map((product) => (
-              <>
-                <ShoppingCartItem
-                  product={product}
-                  handeldelete={(id) =>
-                    setshoppinglist((prev) => {
-                      return prev.filter((e) => {
-                        return e.id !== id;
+            {!shoppinglist ? (
+              <ProductPlaceholder />
+            ) : (
+              shoppinglist.map((product) => (
+                <>
+                  <ShoppingCartItem
+                    product={product}
+                    handeldelete={(id) => {
+                      deleteelement(deleteelmurl, id);
+                      setshoppinglist((prev) => {
+                        return prev.filter((e) => {
+                          return e.id !== id;
+                        });
                       });
-                    })
-                  }
-                />
-                <hr className="mb-1" />
-              </>
-            ))}
+                    }}
+                  />
+                  <hr className="mb-1" />
+                </>
+              ))
+            )}
           </ul>
         </div>
         <div

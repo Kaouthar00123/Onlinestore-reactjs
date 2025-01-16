@@ -1,0 +1,157 @@
+{
+  "product": [
+    {
+      "id": 4,
+      "img-url": {
+        "src": "https://cartzilla-html.createx.studio/assets/img/shop/electronics/03.png",
+        "alt": ""
+      },
+      "name": "Smart watch, New One",
+      "price": "500$",
+      "rate": [4, 76],
+      "categorie": "Cameras et Headphones et Watches",
+      "colors": ["white"],
+      "sizes": ["2l", "6l"],
+      "Description": "Made from high-quality denim fabric, this midi skirt offers durability and comfort for all-day wear. The mid-length design strikes the perfect balance between casual and chic, making it suitable for various occasions, from casual outings to semi-formal events.               One of the standout features of this skirt is its functional pockets. With two spacious pockets at the front, you can conveniently carry your essentials such as keys, phone, or wallet without the need for a bulky bag. The pockets also add a touch of utility and flair to the overall look.",
+      "details": "Model's height: 176 cm The model is wearing size: S/36 This skirt is designed to fall just below the knee, offering a flattering length that is suitable for various occasions. It is made from a soft and lightweight fabric that drapes beautifully, ensuring comfort and ease of movement. The blue color adds a vibrant touch, making it a standout piece in your wardrobe:  fitted waistband fastened with a hidden zipper midi length",
+      "imagesProduct": [
+        {
+          "src": "https://cartzilla-html.createx.studio/assets/img/shop/fashion/product/01.png",
+          "alt": ""
+        },
+        {
+          "src": "https://cartzilla-html.createx.studio/assets/img/shop/fashion/product/05.png",
+          "alt": ""
+        },
+        {
+          "src": "https://cartzilla-html.createx.studio/assets/img/shop/fashion/product/04.png",
+          "alt": ""
+        },
+        {
+          "src": "https://cartzilla-html.createx.studio/assets/img/shop/fashion/product/03.png",
+          "alt": ""
+        },
+        {
+          "src": "https://cartzilla-html.createx.studio/assets/img/shop/fashion/product/02.png",
+          "alt": ""
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "img-url": {
+        "src": "https://cartzilla-html.createx.studio/assets/img/shop/electronics/07.png",
+        "alt": ""
+      },
+      "name": "Gamer Laptop ISSUS",
+      "price": "500$",
+      "rate": [4, 76],
+      "categorie": "Laptops et ses accesoires",
+      "colors": ["black", "gray", "white", "red"],
+      "sizes": ["XS", "S", "M", "L", "XL"],
+      "Description": "Made from high-quality denim fabric, this midi skirt offers durability and comfort for all-day wear. The mid-length design strikes the perfect balance between casual and chic, making it suitable for various occasions, from casual outings to semi-formal events.               One of the standout features of this skirt is its functional pockets. With two spacious pockets at the front, you can conveniently carry your essentials such as keys, phone, or wallet without the need for a bulky bag. The pockets also add a touch of utility and flair to the overall look.",
+      "details": "Model's height: 176 cm The model is wearing size: S/36 This skirt is designed to fall just below the knee, offering a flattering length that is suitable for various occasions. It is made from a soft and lightweight fabric that drapes beautifully, ensuring comfort and ease of movement. The blue color adds a vibrant touch, making it a standout piece in your wardrobe:  fitted waistband fastened with a hidden zipper midi length",
+      "imagesProduct": [
+        {
+          "src": "https://cartzilla-html.createx.studio/assets/img/shop/fashion/product/01.png",
+          "alt": ""
+        },
+        {
+          "src": "https://cartzilla-html.createx.studio/assets/img/shop/fashion/product/05.png",
+          "alt": ""
+        },
+        {
+          "src": "https://cartzilla-html.createx.studio/assets/img/shop/fashion/product/04.png",
+          "alt": ""
+        },
+        {
+          "src": "https://cartzilla-html.createx.studio/assets/img/shop/fashion/product/03.png",
+          "alt": ""
+        },
+        {
+          "src": "https://cartzilla-html.createx.studio/assets/img/shop/fashion/product/02.png",
+          "alt": ""
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "img-url": {
+        "src": "https://m.media-amazon.com/images/I/51+TWOfdtiL._AC_SX569_.jpg",
+        "alt": ""
+      },
+      "name": "International Version – Kindle Paperwhite – (previous generation - 2018 release) Now Waterproof with 2x the Storage - 8 GB",
+      "price": "150$",
+      "rate": [4, 76],
+      "categorie": "Cameras et Headphones et Watches",
+      "colors": ["black", "gray", "white"],
+      "sizes": ["8G", "16G", "32G"],
+      "Description": "Made from high-quality denim fabric, this midi skirt offers durability and comfort for all-day wear. The mid-length design strikes the perfect balance between casual and chic, making it suitable for various occasions, from casual outings to semi-formal events.               One of the standout features of this skirt is its functional pockets. With two spacious pockets at the front, you can conveniently carry your essentials such as keys, phone, or wallet without the need for a bulky bag. The pockets also add a touch of utility and flair to the overall look.",
+      "details": "Model's height: 176 cm The model is wearing size: S/36 This skirt is designed to fall just below the knee, offering a flattering length that is suitable for various occasions. It is made from a soft and lightweight fabric that drapes beautifully, ensuring comfort and ease of movement. The blue color adds a vibrant touch, making it a standout piece in your wardrobe:  fitted waistband fastened with a hidden zipper midi length",
+      "imagesProduct": [
+        {
+          "src": "https://m.media-amazon.com/images/I/51+TWOfdtiL._AC_SX569_.jpg",
+          "alt": ""
+        },
+        {
+          "src": "https://m.media-amazon.com/images/I/417bx91cc8L._AC_SX679_.jpg",
+          "alt": ""
+        },
+        {
+          "src": "https://m.media-amazon.com/images/I/41A2TWFOOVL._AC_SY450_.jpg",
+          "alt": ""
+        }
+      ]
+    },
+
+    {
+      "id": 7,
+      "img-url": {
+        "src": "https://cartzilla-html.createx.studio/assets/img/shop/electronics/06.png",
+        "alt": ""
+      },
+      "name": "Air pod Woow",
+      "price": "500$",
+      "rate": [4, 76],
+      "categorie": "Cameras et Headphones et Watches",
+      "colors": ["black", "gray", "white", "red"],
+      "sizes": ["XS", "S", "M", "L", "XL"],
+      "Description": "Made from high-quality denim fabric, this midi skirt offers durability and comfort for all-day wear. The mid-length design strikes the perfect balance between casual and chic, making it suitable for various occasions, from casual outings to semi-formal events.               One of the standout features of this skirt is its functional pockets. With two spacious pockets at the front, you can conveniently carry your essentials such as keys, phone, or wallet without the need for a bulky bag. The pockets also add a touch of utility and flair to the overall look.",
+      "details": "Model's height: 176 cm The model is wearing size: S/36 This skirt is designed to fall just below the knee, offering a flattering length that is suitable for various occasions. It is made from a soft and lightweight fabric that drapes beautifully, ensuring comfort and ease of movement. The blue color adds a vibrant touch, making it a standout piece in your wardrobe:  fitted waistband fastened with a hidden zipper midi length",
+      "imagesProduct": [
+        {
+          "src": "https://cartzilla-html.createx.studio/assets/img/shop/fashion/product/01.png",
+          "alt": ""
+        },
+        {
+          "src": "https://cartzilla-html.createx.studio/assets/img/shop/fashion/product/05.png",
+          "alt": ""
+        },
+        {
+          "src": "https://cartzilla-html.createx.studio/assets/img/shop/fashion/product/04.png",
+          "alt": ""
+        },
+        {
+          "src": "https://cartzilla-html.createx.studio/assets/img/shop/fashion/product/03.png",
+          "alt": ""
+        },
+        {
+          "src": "https://cartzilla-html.createx.studio/assets/img/shop/fashion/product/02.png",
+          "alt": ""
+        }
+      ]
+    },
+    {
+      "src": [
+        "https://www.bequeencollection.com/wp-content/uploads/2024/12/img_3657-scaled.jpeg",
+        "https://www.bequeencollection.com/wp-content/uploads/2024/03/img_1607-1-scaled.jpeg",
+        "https://www.bequeencollection.com/wp-content/uploads/2024/06/img_4874-scaled.jpeg",
+        "https://www.bequeencollection.com/wp-content/uploads/2024/12/img_2329-scaled.jpeg",
+        "https://www.bequeencollection.com/wp-content/uploads/2024/06/img_2759-2-scaled.jpeg",
+        "https://www.bequeencollection.com/wp-content/uploads/2024/06/img_2768-4-scaled.jpeg",
+        "https://www.bequeencollection.com/wp-content/uploads/2024/12/img_0523-scaled.jpeg",
+        "https://www.bequeencollection.com/wp-content/uploads/2024/12/img_0529-2-scaled.jpeg"
+      ]
+    }
+  ]
+}

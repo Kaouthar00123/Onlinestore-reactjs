@@ -1,7 +1,7 @@
 import React from "react";
+import NavBar from "./NavBar";
 import AppLayout from "./AppLayout";
 import { Outlet } from "react-router-dom";
-import NavBar from "./NavBar";
 
 export default function FirstPageLayout() {
   return (

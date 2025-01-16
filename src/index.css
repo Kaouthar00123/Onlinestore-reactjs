@@ -26,6 +26,9 @@ code {
 }
 
 @layer components {
+  h1 {
+    @apply text-2xl font-semibold m-5;
+  }
   h2 {
     @apply text-xl font-semibold;
   }

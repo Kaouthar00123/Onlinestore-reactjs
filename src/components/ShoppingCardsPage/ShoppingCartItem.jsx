@@ -2,31 +2,37 @@ import React, { useState } from "react";
 
 export default function ShoppingCartItem(props) {
   const product = props.product;
-  const [quantities, setquantities] = useState(product.quantity);
+  const [quantities, setquantities] = useState(product.qunt);
+  console.log("product in shoopin cart item: ", product);
   return (
     <li
-      key={product.id}
+      key={product.idproduct}
       className="grid grid-cols-12 gap-5 text-base text-gray-500 items-center align-middle justify-center"
     >
       <div id="Product" className="col-span-5 flex gap-3">
-        <div className="size-24 shrink-0 overflow-hidden rounded-md border border-gray-200">
+        <div
+          id="product-img"
+          className="size-24 shrink-0 overflow-hidden rounded-md border border-gray-200"
+        >
           <img
-            alt={product.imageAlt}
-            src={product.imageSrc}
+            src={product["img-url"].src}
+            alt={product["img-url"].alt}
             className="size-full object-cover"
           />
         </div>
         <div>
           <div className="flex justify-between text-base font-medium text-gray-900">
-            <h3>
-              <a href={product.href}>{product.name}</a>
-            </h3>
+            <h4>
+              <a href="#">{product.name}</a>
+            </h4>
           </div>
-          <p className="mt-1 text-sm text-gray-500">{product.color}</p>
+          <p className="mt-1 text-sm text-gray-500">
+            {product["extras-info"].color}
+          </p>
         </div>
       </div>
       <div id="Price" className="col-span-2">
-        <span className="">${product.price}</span>
+        <span className="">{product.price}</span>
       </div>
       <div id="Quantity" className="col-span-2 w-fit">
         <div
@@ -55,7 +61,8 @@ export default function ShoppingCartItem(props) {
         </div>
       </div>
       <div id="Total" className="col-span-2">
-        <span className="">${product.price * quantities}</span>
+        {/* <span className="">${product.price * quantities}</span> */}
+        <span className="">$123</span>
       </div>
       <div
         id="Delete"

@@ -1,83 +1,30 @@
-import React from "react";
-import Card from "../components/ShoppingPage/Card";
+import React, { useEffect, useState } from "react";
 import SearchComponent from "../components/sharedComponents/SearchComponent";
 import SectionShopping from "../components/ShoppingPage/SectionShopping";
-import { Link } from "react-router-dom";
-
+import { Link, useLocation } from "react-router-dom";
+import { motion, AnimatePresence } from "framer-motion";
 import { Sidebar } from "flowbite-react";
-import {
-  HiArrowSmRight,
-  HiChartPie,
-  HiInbox,
-  HiShoppingBag,
-  HiTable,
-  HiUser,
-  HiViewBoards,
-  HiCamera,
-  HiChip,
-} from "react-icons/hi";
+import ThemeContext from "..";
+import { useContext } from "react";
 
-const products = [
-  {
-    id: 1,
-    "img-url": "https://flowbite.com/docs/images/products/apple-watch.png",
-    name: "Apple Watch Series 7 GPS, Aluminium Case, Starlight Sport",
-    price: "500$",
-    rate: 3,
-  },
-  {
-    id: 2,
-    "img-url":
-      "https://cartzilla-html.createx.studio/assets/img/shop/electronics/product/gallery/01.png",
-    name: "Phone RealMe, New version, with solid concption and performace",
-    price: "500$",
-    rate: 4,
-  },
-  {
-    id: 3,
-    "img-url":
-      "https://cartzilla-html.createx.studio/assets/img/shop/electronics/01.png",
-    name: "HeaSet for Virtual experience",
-    price: "500$",
-    rate: 2,
-  },
-  {
-    id: 1,
-    "img-url":
-      "https://cartzilla-html.createx.studio/assets/img/shop/electronics/03.png",
-    name: "Smart watch, New One",
-    price: "500$",
-    rate: 1,
-  },
-  {
-    id: 1,
-    "img-url":
-      "https://cartzilla-html.createx.studio/assets/img/shop/electronics/07.png",
-    name: "Gamer Laptop ISSUS",
-    price: "500$",
-    rate: 5,
-  },
-  {
-    id: 1,
-    "img-url":
-      "https://cartzilla-html.createx.studio/assets/img/shop/electronics/11.png",
-    name: "VRB01 Camera Nikon Max",
-    price: "500$",
-    rate: 5,
-  },
-  {
-    id: 1,
-    "img-url":
-      "https://cartzilla-html.createx.studio/assets/img/shop/electronics/06.png",
-    name: "Air pod Woow",
-    price: "500$",
-    rate: 5,
-  },
-];
+// import {
+//   HiArrowSmRight,
+//   HiChartPie,
+//   HiInbox,
+//   HiShoppingBag,
+//   HiTable,
+//   HiUser,
+//   HiViewBoards,
+//   HiCamera,
+//   HiChip,
+// } from "react-icons/hi";
+
+import axios from "axios";
+import CarousselImages from "../components/sharedComponents/CarousselImages";
 
 const listcategories = [
   {
-    name: "Laptop & Computer",
+    name: "Laptops et ses accesoires",
     id: 1,
     icon: (
       <svg width="1em" height="1em" fill="currentColor" viewBox="0 0 1024 1024">
@@ -86,7 +33,7 @@ const listcategories = [
     ),
   },
   {
-    name: "Phone & Computer",
+    name: "Phones et ses accesoires",
     id: 2,
     icon: (
       <svg width="1em" height="1em" fill="currentColor" viewBox="0 0 1024 1024">
@@ -95,7 +42,7 @@ const listcategories = [
     ),
   },
   {
-    name: "Camera & Computer",
+    name: "Cameras et Headphones et Watches",
     id: 3,
     icon: (
       <svg width="1em" height="1em" fill="currentColor" viewBox="0 0 1024 1024">
@@ -103,86 +50,180 @@ const listcategories = [
       </svg>
     ),
   },
-  {
-    name: "Accesorie & Computer",
-    id: 4,
-    icon: (
-      <svg width="1em" height="1em" fill="currentColor" viewBox="0 0 1024 1024">
-        <path d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v584zM639.5 414h-45c-3 0-5.8 1.7-7.1 4.4L514 563.8h-2.8l-73.4-145.4a8 8 0 0 0-7.1-4.4h-46c-1.3 0-2.7.3-3.8 1-3.9 2.1-5.3 7-3.2 10.9l89.3 164h-48.6c-4.4 0-8 3.6-8 8v21.3c0 4.4 3.6 8 8 8h65.1v33.7h-65.1c-4.4 0-8 3.6-8 8v21.3c0 4.4 3.6 8 8 8h65.1V752c0 4.4 3.6 8 8 8h41.3c4.4 0 8-3.6 8-8v-53.8h65.4c4.4 0 8-3.6 8-8v-21.3c0-4.4-3.6-8-8-8h-65.4v-33.7h65.4c4.4 0 8-3.6 8-8v-21.3c0-4.4-3.6-8-8-8h-49.1l89.3-164.1c.6-1.2 1-2.5 1-3.8.1-4.4-3.4-8-7.9-8z" />
-      </svg>
-    ),
-  },
-  {
-    name: "Air prod & Computer",
-    id: 5,
-    icon: (
-      <svg width="1em" height="1em" fill="currentColor" viewBox="0 0 1024 1024">
-        <path d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v584zM639.5 414h-45c-3 0-5.8 1.7-7.1 4.4L514 563.8h-2.8l-73.4-145.4a8 8 0 0 0-7.1-4.4h-46c-1.3 0-2.7.3-3.8 1-3.9 2.1-5.3 7-3.2 10.9l89.3 164h-48.6c-4.4 0-8 3.6-8 8v21.3c0 4.4 3.6 8 8 8h65.1v33.7h-65.1c-4.4 0-8 3.6-8 8v21.3c0 4.4 3.6 8 8 8h65.1V752c0 4.4 3.6 8 8 8h41.3c4.4 0 8-3.6 8-8v-53.8h65.4c4.4 0 8-3.6 8-8v-21.3c0-4.4-3.6-8-8-8h-65.4v-33.7h65.4c4.4 0 8-3.6 8-8v-21.3c0-4.4-3.6-8-8-8h-49.1l89.3-164.1c.6-1.2 1-2.5 1-3.8.1-4.4-3.4-8-7.9-8z" />
-      </svg>
-    ),
-  },
-  {
-    name: "Watch & Computer",
-    id: 6,
-    icon: (
-      <svg width="1em" height="1em" fill="currentColor" viewBox="0 0 1024 1024">
-        <path d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v584zM639.5 414h-45c-3 0-5.8 1.7-7.1 4.4L514 563.8h-2.8l-73.4-145.4a8 8 0 0 0-7.1-4.4h-46c-1.3 0-2.7.3-3.8 1-3.9 2.1-5.3 7-3.2 10.9l89.3 164h-48.6c-4.4 0-8 3.6-8 8v21.3c0 4.4 3.6 8 8 8h65.1v33.7h-65.1c-4.4 0-8 3.6-8 8v21.3c0 4.4 3.6 8 8 8h65.1V752c0 4.4 3.6 8 8 8h41.3c4.4 0 8-3.6 8-8v-53.8h65.4c4.4 0 8-3.6 8-8v-21.3c0-4.4-3.6-8-8-8h-65.4v-33.7h65.4c4.4 0 8-3.6 8-8v-21.3c0-4.4-3.6-8-8-8h-49.1l89.3-164.1c.6-1.2 1-2.5 1-3.8.1-4.4-3.4-8-7.9-8z" />
-      </svg>
-    ),
-  },
-  {
-    name: "... & Computer",
-    id: 7,
-    icon: (
-      <svg width="1em" height="1em" fill="currentColor" viewBox="0 0 1024 1024">
-        <path d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v584zM639.5 414h-45c-3 0-5.8 1.7-7.1 4.4L514 563.8h-2.8l-73.4-145.4a8 8 0 0 0-7.1-4.4h-46c-1.3 0-2.7.3-3.8 1-3.9 2.1-5.3 7-3.2 10.9l89.3 164h-48.6c-4.4 0-8 3.6-8 8v21.3c0 4.4 3.6 8 8 8h65.1v33.7h-65.1c-4.4 0-8 3.6-8 8v21.3c0 4.4 3.6 8 8 8h65.1V752c0 4.4 3.6 8 8 8h41.3c4.4 0 8-3.6 8-8v-53.8h65.4c4.4 0 8-3.6 8-8v-21.3c0-4.4-3.6-8-8-8h-65.4v-33.7h65.4c4.4 0 8-3.6 8-8v-21.3c0-4.4-3.6-8-8-8h-49.1l89.3-164.1c.6-1.2 1-2.5 1-3.8.1-4.4-3.4-8-7.9-8z" />
-      </svg>
-    ),
-  },
 ];
+const apiUrl = "http://localhost:4000/products";
+const notifurl = "http://localhost:4002/notification";
+const imagepresnttaion = [
+  {
+    src: "https://images.unsplash.com/photo-1522199755839-a2bacb67c546?q=80&w=2072&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    alt: "",
+  },
+  {
+    src: "https://images.unsplash.com/photo-1524805444758-089113d48a6d?q=80&w=1888&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    alt: "",
+  },
+  {
+    src: "https://plus.unsplash.com/premium_photo-1673968280716-ca0c00af8a39?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    alt: "",
+  },
+  {
+    src: "https://images.unsplash.com/photo-1583305727488-61f82c7eae4b?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    alt: "",
+  },
+  {
+    src: "https://images.unsplash.com/photo-1648104063913-9bd7d11af6cb?q=80&w=1935&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    alt: "",
+  },
+  // {
+  //   src: "https://plus.unsplash.com/premium_photo-1681566678032-36c85408ad09?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  //   alt: "",
+  // },
+  // {
+  //   src: "https://images.unsplash.com/photo-1617194280586-97ececece2f9?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  //   alt: "",
+  // },
+  // {
+  //   src: "https://images.unsplash.com/photo-1685320198649-781e83a61de4?q=80&w=1854&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  //   alt: "",
+  // },
+  // {
+  //   src: "https://media.istockphoto.com/id/1204894072/photo/toolkit-tools-on-wall.jpg?s=1024x1024&w=is&k=20&c=z9o4vNV9cs5ezOA1T0k2yq21ZQauhD07UXBBIPfoBY0=",
+  //   alt: "",
+  // },
+  // {
+  //   src: "https://media.istockphoto.com/id/502377899/photo/landscaping-tools-with-room-for-copy.jpg?s=1024x1024&w=is&k=20&c=w7zjBpKoYumxNuM1nN_vZMefClI77mLwS1-5AbXcRYU=",
+  //   alt: "j1",
+  // },
+  // {
+  //   src: "https://media.istockphoto.com/id/1155881063/photo/taking-the-needed-tool-to-begin-repairs.jpg?s=1024x1024&w=is&k=20&c=HvP0LD-xccdYeqUK96rgZU7X8yjNt8XcVT56yG2QIqQ=",
+  //   alt: "j2",
+  // },
+  // {
+  //   src: "https://plus.unsplash.com/premium_photo-1677362887440-f368093def81?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  //   alt: "c1",
+  // },
+  // {
+  //   src: "https://plus.unsplash.com/premium_photo-1677700375016-efecc99bc526?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  //   alt: "o1",
+  // },
+  // {
+  //   src: "  https://images.unsplash.com/photo-1603227685935-3f66d0f35440?q=80&w=1897&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  //   alt: "o2",
+  // },
+  // {
+  //   src: "https://plus.unsplash.com/premium_photo-1677009834523-367c2e9b281c?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  //   alt: "o3",
+  // },
+];
+
 export default function Home() {
+  const baseUrl = useContext(ThemeContext);
+  const [products, setproducts] = useState(null);
+  const [notifications, setNotifications] = useState(null);
+  var location = useLocation();
+  console.log("location.pathname.toString(): ", location.pathname.toString());
+  useEffect(() => {
+    axios
+      .get(apiUrl)
+      .then((response) => {
+        console.log("response.data: ", response.data);
+        setproducts(response.data);
+      })
+      .catch((error) => {
+        console.log("error: ", error);
+      });
+
+    // Set time laps to listen to notif
+    setTimeout(() => {
+      axios
+        .get(notifurl)
+        .then((response) => {
+          console.log("response.data: ", response.data);
+          response.data.map((notif) =>
+            setNotifications((prev) => {
+              return [...prev, notif];
+            })
+          );
+        })
+        .catch((error) => {
+          console.log("error: ", error);
+        });
+    }, 5000);
+  }, []);
+
   return (
-    <main id="Shopping" className="w-[100%] h-[100%] mt-[2%] font-sans">
-      {/* <h2 className="text-center text-2xl font-semibold m-5">
-        Shopping section
-      </h2> */}
+    <main
+      id="Shopping"
+      className="rounded-md shadow-sm w-[100%] h-[100%] mt-[2%] font-sans"
+    >
       <header className="h-[3rem] my-[2%]">
         <SearchComponent />
       </header>
-      <div id="content" className="flex gap-7">
-        <div id="sidebarmenu">
-          <Sidebar aria-label="Sidebar with logo branding example">
-            <h3 className="text-xl font-medium my-5">Categories</h3>
-            <Sidebar.Items>
-              <Sidebar.ItemGroup>
-                {listcategories.map((category) => (
-                  <Link to={"/firstpages/categoryproducts/" + category.id}>
-                    <Sidebar.Item>
-                      <div className="flex justify-between w-full align-middle items-center">
-                        <div className="flex gap-3 justify-start align-middle items-center w-[80%] text-sm text-gray-700">
+      <div id="content">
+        <section id="presnttaion" className="w-full flex gap-5">
+          <div
+            id="sidebarmenu"
+            className="w-[30%] h-fit bg-[#ffffff00] font-serif border border-gray-100 rounded-md"
+          >
+            <div
+              id="title-category"
+              className="bg-gray-50 mb-3 text-lg font-medium px-2 py-1 flex justify-between w-full align-middle items-center"
+            >
+              <div className="flex gap-3 justify-start align-middle items-center w-[80%] text-gray-700">
+                <span className="w-[1/5]">
+                  <svg
+                    width="1em"
+                    height="1em"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M10 3H4a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1zM9 9H5V5h4v4zm11-6h-6a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1zm-1 6h-4V5h4v4zm-9 4H4a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-6a1 1 0 0 0-1-1zm-1 6H5v-4h4v4zm8-6c-2.206 0-4 1.794-4 4s1.794 4 4 4 4-1.794 4-4-1.794-4-4-4zm0 6c-1.103 0-2-.897-2-2s.897-2 2-2 2 .897 2 2-.897 2-2 2z" />
+                  </svg>
+                </span>
+                <span className="w-[4/5]">Categories</span>
+              </div>
+            </div>
+            <ul className="flex flex-col gap-2 text-lg text-black px-2 bg-white">
+              {listcategories.map((category) => (
+                <li className="px-2 py-1 hover:bg-gray-100 border-b border-b-gray-200">
+                  <Link
+                    to={
+                      location.pathname.toString() +
+                      "home/category-products/" +
+                      category.name
+                    }
+                  >
+                    <div className="flex justify-between w-full align-middle items-center">
+                      <div className="flex gap-3 justify-start align-middle items-center w-[80%] text-gray-700">
+                        {/* <span className="w-[1/5] text-[20px] text-gray-600">
                           {category.icon}
-                          {category.name}
-                        </div>
-                        <div className="w-[20%] flex justify-end">
-                          <svg
-                            width="1em"
-                            height="1em"
-                            fill="currentColor"
-                            viewBox="0 0 1024 1024"
-                          >
-                            <path d="M765.7 486.8 314.9 134.7A7.97 7.97 0 0 0 302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 0 0 0-50.4z" />
-                          </svg>
-                        </div>
+                        </span> */}
+                        <span className="text-start">{category.name}</span>
                       </div>
-                    </Sidebar.Item>
+                      <div className="w-[20%] flex justify-end">
+                        <svg
+                          width="1em"
+                          height="1em"
+                          fill="currentColor"
+                          viewBox="0 0 1024 1024"
+                        >
+                          <path d="M765.7 486.8 314.9 134.7A7.97 7.97 0 0 0 302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 0 0 0-50.4z" />
+                        </svg>
+                      </div>
+                    </div>
                   </Link>
-                ))}
-              </Sidebar.ItemGroup>
-            </Sidebar.Items>
-          </Sidebar>
-        </div>
-        <div>
-          {/* New Arrivals Section */}
+                </li>
+              ))}
+            </ul>
+          </div>
+          <CarousselImages
+            images={imagepresnttaion}
+            className="rounded-md shadow-md w-full h-full object-cover"
+          />
+        </section>
+
+        <div id="subcontent">
+          {/* New Arrivals Product */}
           <SectionShopping
             id="new-arrivals-products"
             title="New Arrivals"
@@ -193,9 +234,64 @@ export default function Home() {
             id="trend-products"
             title="Trending"
             products={products}
-          />
+          />{" "}
+          {/* </>
+          )} */}
         </div>
       </div>
+      {/* //Notification section */}
+      {!notifications ? (
+        <></>
+      ) : (
+        <section className="flex flex-col w-full h-[100vh]  z-[1000000]">
+          <ul className="fixed top-0 bottom-0 right-0 flex flex-col justify-end gap-5">
+            {console.log("notifications: ", notifications)}
+            <AnimatePresence initial={false} mode="popLayout">
+              {notifications.map((notif) => (
+                <motion.li
+                  className="p-3 text-sm w-[300px] bg-green-100 border border-gray-100 rounded-lg flex flex-col gap-3"
+                  key={notif.id}
+                  layout
+                  initial={{ opacity: 0, y: 50, scale: 0.3 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  exit={{
+                    opacity: 0,
+                    scale: 0.5,
+                    transition: { duration: 0.2 },
+                  }}
+                >
+                  <div id="header" className="flex justify-between">
+                    <h4 className="text-sm font-semibold text-gray-800">
+                      {notif.title}
+                    </h4>
+                    <button
+                      onClick={() =>
+                        setNotifications((prev) => {
+                          return prev.splice(
+                            prev.findIndex((i) => i === notif.id),
+                            1
+                          );
+                        })
+                      }
+                    >
+                      <svg
+                        width="1em"
+                        height="1em"
+                        fill="currentColor"
+                        viewBox="0 0 1024 1024"
+                      >
+                        <path d="M799.855 166.312c.023.007.043.018.084.059l57.69 57.69c.041.041.052.06.059.084a.118.118 0 0 1 0 .069c-.007.023-.018.042-.059.083L569.926 512l287.703 287.703c.041.04.052.06.059.083a.118.118 0 0 1 0 .07c-.007.022-.018.042-.059.083l-57.69 57.69c-.041.041-.06.052-.084.059a.118.118 0 0 1-.069 0c-.023-.007-.042-.018-.083-.059L512 569.926 224.297 857.629c-.04.041-.06.052-.083.059a.118.118 0 0 1-.07 0c-.022-.007-.042-.018-.083-.059l-57.69-57.69c-.041-.041-.052-.06-.059-.084a.118.118 0 0 1 0-.069c.007-.023.018-.042.059-.083L454.073 512 166.371 224.297c-.041-.04-.052-.06-.059-.083a.118.118 0 0 1 0-.07c.007-.022.018-.042.059-.083l57.69-57.69c.041-.041.06-.052.084-.059a.118.118 0 0 1 .069 0c.023.007.042.018.083.059L512 454.073l287.703-287.702c.04-.041.06-.052.083-.059a.118.118 0 0 1 .07 0z" />
+                      </svg>
+                    </button>
+                  </div>
+                  <hr />
+                  <p className="text-sm text-gray-700">{notif.content}</p>
+                </motion.li>
+              ))}
+            </AnimatePresence>
+          </ul>
+        </section>
+      )}
     </main>
   );
 }

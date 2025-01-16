@@ -1,18 +1,20 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { FiShoppingCart } from "react-icons/fi";
 import { CgDarkMode } from "react-icons/cg";
 import { IoIosSearch } from "react-icons/io";
 import { MdMenu } from "react-icons/md";
 import ShoppingCart from "../components/ShoppingCardsPage/ShppingCart";
 import { NavLink } from "react-router-dom";
-import { path } from "..";
+import ThemeContext from "..";
 
 const menulist = [
   ["Home", "/"],
-  ["Checkout", "/checkout"],
+  ["ShoppingCart", "/shoppingcart"],
   ["Contact", "/contact"],
 ];
+
 export default function NavBar() {
+  const path = useContext(ThemeContext);
   const [MenueShowing, setMenueShowing] = useState(false);
   const [theme, setTheme] = useState(null);
   const [OpenShoppingCart, setOpenShoppingCart] = useState(false);
@@ -31,6 +33,7 @@ export default function NavBar() {
       document.documentElement.classList.remove("dark");
     }
   }, [theme]);
+
   return (
     <header className="sticky top-0 mb-[2%] bg-white flex justify-between items-center rounded-full p-4 z-[50] shadow-[0_0.5rem_2rem_-0.25rem_hsla(216,9%,44%,.1)]">
       <div id="logo" className="font-semibold text-xl">
@@ -65,12 +68,12 @@ export default function NavBar() {
             onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
           />
         </button>
-        <button className="mx-2">
+        {/* <button className="mx-2">
           <FiShoppingCart
             className="icon-header"
             onClick={() => setOpenShoppingCart(true)}
           />
-        </button>
+        </button> */}
         <ShoppingCart init={OpenShoppingCart} open={setOpenShoppingCart} />
         <button className="mx-2">
           <IoIosSearch className="icon-header" />

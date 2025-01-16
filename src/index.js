@@ -5,18 +5,22 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-const path = "/firstpages";
+import { createContext } from "react";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
+
+const ThemeContext = createContext(null);
+
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
+    <ThemeContext.Provider value="">
       <App />
-    </BrowserRouter>
+    </ThemeContext.Provider>
   </React.StrictMode>
 );
 
-export { path };
+export default ThemeContext;
+
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
