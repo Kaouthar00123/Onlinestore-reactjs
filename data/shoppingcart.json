@@ -33,22 +33,6 @@
       }
     },
     {
-      "id": "2118",
-      "iduser": 1,
-      "idproduct": 11,
-      "img-url": {
-        "src": "https://m.media-amazon.com/images/I/51lV1SiVkGL._AC_SX466_.jpg",
-        "alt": ""
-      },
-      "name": "Apple Watch Series 7 (GPS, 45mm) Green Aluminum Case with Clover Sport Band, Regular (Renewed)",
-      "price": "50$",
-      "qunt": 10,
-      "extras-info": {
-        "color": "pink",
-        "size": "8G"
-      }
-    },
-    {
       "id": "1b19",
       "iduser": 1,
       "idproduct": 4,
@@ -62,6 +46,22 @@
       "extras-info": {
         "color": "red",
         "size": "12l"
+      }
+    },
+    {
+      "id": "e11f",
+      "iduser": 1,
+      "idproduct": "5",
+      "img-url": {
+        "src": "https://img01.71360.com/w3/xe5j03/20241105/e9472ec93dd420828424d56c671df3a8.jpeg?ct=webp",
+        "alt": ""
+      },
+      "name": "DJI Air 2s",
+      "price": "670$",
+      "qunt": 2,
+      "extras-info": {
+        "color": "white",
+        "size": "M"
       }
     }
   ]

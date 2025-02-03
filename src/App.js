@@ -2,7 +2,6 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Contact from "./pages/Contact";
 import NoPage from "./pages/NoPage";
-import Test from "./Test/Test";
 import ProductDetails from "./pages/ProductDetails";
 import Draggable from "react-draggable";
 import * as motion from "motion/react-client";
@@ -19,13 +18,14 @@ import FirstPageLayout from "./Layout/FirstPageLayout";
 import { path } from "./globalesvar";
 import { useContext } from "react";
 import ThemeContext from ".";
-
+import Test from "./pages/Test";
 export default function App() {
-  console.log("in app, path: ", useContext(ThemeContext));
   return (
     // Routes
     <Router>
       <Routes>
+        {/* Test */}
+        <Route path="test" element={<Test />} />
         {/* //Principale pages */}
         <Route path="" element={<FirstPageLayout />}>
           <Route index element={<Home />} />

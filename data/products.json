@@ -1,17 +1,27 @@
 {
   "products": [
     {
-      "id": 1,
+      "id": "1",
       "img-url": {
         "src": "https://flowbite.com/docs/images/products/apple-watch.png",
         "alt": ""
       },
       "name": "Apple Watch Series 6",
+      "sales": 2,
+      "stock": 10,
       "price": "500$",
-      "rate": [4, 76],
+      "rate": [
+        4,
+        76
+      ],
       "categorie": "Cameras et Headphones et Watches",
-      "colors": ["black"],
-      "sizes": ["8G", "16G"],
+      "colors": [
+        "black"
+      ],
+      "sizes": [
+        "8G",
+        "16G"
+      ],
       "Description": "Made from high-quality denim fabric, this midi skirt offers durability and comfort for all-day wear. The mid-length design strikes the perfect balance between casual and chic, making it suitable for various occasions, from casual outings to semi-formal events.               One of the standout features of this skirt is its functional pockets. With two spacious pockets at the front, you can conveniently carry your essentials such as keys, phone, or wallet without the need for a bulky bag. The pockets also add a touch of utility and flair to the overall look.",
       "details": "Model's height: 176 cm The model is wearing size: S/36 This skirt is designed to fall just below the knee, offering a flattering length that is suitable for various occasions. It is made from a soft and lightweight fabric that drapes beautifully, ensuring comfort and ease of movement. The blue color adds a vibrant touch, making it a standout piece in your wardrobe:  fitted waistband fastened with a hidden zipper midi length",
       "imagesProduct": [
@@ -29,45 +39,31 @@
         }
       ]
     },
-
     {
-      "id": 11,
-      "img-url": {
-        "src": "https://m.media-amazon.com/images/I/51lV1SiVkGL._AC_SX466_.jpg",
-        "alt": ""
-      },
-      "name": "Apple Watch Series 7 (GPS, 45mm) Green Aluminum Case with Clover Sport Band, Regular (Renewed)",
-      "price": "50$",
-      "rate": [4, 76],
-      "categorie": "Cameras et Headphones et Watches",
-      "colors": ["black", "green", "pink"],
-      "sizes": ["4G", "8G"],
-      "Description": "Made from high-quality denim fabric, this midi skirt offers durability and comfort for all-day wear. The mid-length design strikes the perfect balance between casual and chic, making it suitable for various occasions, from casual outings to semi-formal events.               One of the standout features of this skirt is its functional pockets. With two spacious pockets at the front, you can conveniently carry your essentials such as keys, phone, or wallet without the need for a bulky bag. The pockets also add a touch of utility and flair to the overall look.",
-      "details": "Model's height: 176 cm The model is wearing size: S/36 This skirt is designed to fall just below the knee, offering a flattering length that is suitable for various occasions. It is made from a soft and lightweight fabric that drapes beautifully, ensuring comfort and ease of movement. The blue color adds a vibrant touch, making it a standout piece in your wardrobe:  fitted waistband fastened with a hidden zipper midi length",
-      "imagesProduct": [
-        {
-          "src": "https://m.media-amazon.com/images/I/515sNC7slRL._AC_SY741_.jpg",
-          "alt": ""
-        },
-        {
-          "src": "https://m.media-amazon.com/images/I/61C2qwopuLL._AC_SY679_.jpg",
-          "alt": ""
-        }
-      ]
-    },
-
-    {
-      "id": 2,
+      "id": "2",
       "img-url": {
         "src": "https://m.media-amazon.com/images/I/51eH2dJN9uL._AC_SX679_.jpg",
         "alt": ""
       },
       "name": "Samsung Galaxy A15 (SM-155M/DSN), 128GB 6GB RAM, Dual SIM, Factory Unlocked GSM, International Version (Wall Charger Bundle) (Light Blue)",
+      "sales": 2,
+      "stock": 10,
       "price": "750$",
-      "rate": [2, 10],
+      "rate": [
+        2,
+        10
+      ],
       "categorie": "Phones et ses accesoires",
-      "colors": ["black", "gray", "white"],
-      "sizes": ["8G", "16G", "32G"],
+      "colors": [
+        "black",
+        "gray",
+        "white"
+      ],
+      "sizes": [
+        "8G",
+        "16G",
+        "32G"
+      ],
       "Description": "Made from high-quality denim fabric, this midi skirt offers durability and comfort for all-day wear. The mid-length design strikes the perfect balance between casual and chic, making it suitable for various occasions, from casual outings to semi-formal events.               One of the standout features of this skirt is its functional pockets. With two spacious pockets at the front, you can conveniently carry your essentials such as keys, phone, or wallet without the need for a bulky bag. The pockets also add a touch of utility and flair to the overall look.",
       "details": "Model's height: 176 cm The model is wearing size: S/36 This skirt is designed to fall just below the knee, offering a flattering length that is suitable for various occasions. It is made from a soft and lightweight fabric that drapes beautifully, ensuring comfort and ease of movement. The blue color adds a vibrant touch, making it a standout piece in your wardrobe:  fitted waistband fastened with a hidden zipper midi length",
       "imagesProduct": [
@@ -85,19 +81,31 @@
         }
       ]
     },
-
     {
-      "id": 3,
+      "id": "3",
       "img-url": {
         "src": "https://m.media-amazon.com/images/I/61xk4XNRktL._AC_SX679_.jpg",
         "alt": ""
       },
       "name": "Moto G Play | 2024 | Unlocked | Made for US 4/64GB | 50MP Camera | Sapphire Blue",
+      "sales": 2,
+      "stock": 10,
       "price": "89$",
-      "rate": [2, 10],
+      "rate": [
+        2,
+        10
+      ],
       "categorie": "Phones et ses accesoires",
-      "colors": ["black", "gray", "white"],
-      "sizes": ["8G", "16G", "32G"],
+      "colors": [
+        "black",
+        "gray",
+        "white"
+      ],
+      "sizes": [
+        "8G",
+        "16G",
+        "32G"
+      ],
       "Description": "Made from high-quality denim fabric, this midi skirt offers durability and comfort for all-day wear. The mid-length design strikes the perfect balance between casual and chic, making it suitable for various occasions, from casual outings to semi-formal events.               One of the standout features of this skirt is its functional pockets. With two spacious pockets at the front, you can conveniently carry your essentials such as keys, phone, or wallet without the need for a bulky bag. The pockets also add a touch of utility and flair to the overall look.",
       "details": "Model's height: 176 cm The model is wearing size: S/36 This skirt is designed to fall just below the knee, offering a flattering length that is suitable for various occasions. It is made from a soft and lightweight fabric that drapes beautifully, ensuring comfort and ease of movement. The blue color adds a vibrant touch, making it a standout piece in your wardrobe:  fitted waistband fastened with a hidden zipper midi length",
       "imagesProduct": [
@@ -111,19 +119,29 @@
         }
       ]
     },
-
     {
-      "id": 4,
+      "id": "4",
       "img-url": {
         "src": "https://img01.huaweifile.com/sg/ms/sa/pms/uomcdn/SA_HW_B2C/pms/202412/gbom/VFOCX3CASE1/428_428_C5A8DECE8BEA154C01E4DEB4A59B5A38mp.png",
         "alt": ""
       },
       "name": "HUAWEI Mate X6",
+      "sales": 2,
+      "stock": 10,
       "price": "255$",
-      "rate": [3, 5],
+      "rate": [
+        3,
+        5
+      ],
       "categorie": "Laptops et ses accesoires",
-      "colors": ["black", "red", "gray"],
-      "sizes": ["12l"],
+      "colors": [
+        "black",
+        "red",
+        "gray"
+      ],
+      "sizes": [
+        "12l"
+      ],
       "Description": "Made from high-quality denim fabric, this midi skirt offers durability and comfort for all-day wear. The mid-length design strikes the perfect balance between casual and chic, making it suitable for various occasions, from casual outings to semi-formal events.               One of the standout features of this skirt is its functional pockets. With two spacious pockets at the front, you can conveniently carry your essentials such as keys, phone, or wallet without the need for a bulky bag. The pockets also add a touch of utility and flair to the overall look.",
       "details": "Model's height: 176 cm The model is wearing size: S/36 This skirt is designed to fall just below the knee, offering a flattering length that is suitable for various occasions. It is made from a soft and lightweight fabric that drapes beautifully, ensuring comfort and ease of movement. The blue color adds a vibrant touch, making it a standout piece in your wardrobe:  fitted waistband fastened with a hidden zipper midi length",
       "imagesProduct": [
@@ -141,19 +159,30 @@
         }
       ]
     },
-
     {
-      "id": 5,
+      "id": "5",
       "img-url": {
         "src": "https://img01.71360.com/w3/xe5j03/20241105/e9472ec93dd420828424d56c671df3a8.jpeg?ct=webp",
         "alt": ""
       },
       "name": "DJI Air 2s",
+      "sales": 2,
+      "stock": 10,
       "price": "670$",
-      "rate": [3, 5],
+      "rate": [
+        3,
+        5
+      ],
       "categorie": "Laptops et ses accesoires",
-      "colors": ["white", "gray"],
-      "sizes": ["SM", "M", "L"],
+      "colors": [
+        "white",
+        "gray"
+      ],
+      "sizes": [
+        "SM",
+        "M",
+        "L"
+      ],
       "Description": "Intelligent Flight Function. Intelligent Follow 4.0, Points of Interest Surround 3.0, etc., enable the craft to actively follow or fly around the target, and detect and bypass obstacles during flight. Assisted Shooting. Powerful auxiliary shooting functions, such as Master Lens, Time-lapse, and One-Touch Movie, help you make a big movie easily. Gimbal Camera Performance. The 3-axis gimbal camera can stabilize 5.4K 30fps/4K 60fps/1080p120fps Ultra HD video, and shoot up to 20 megapixel photos. It supports shooting 10 bit D-Log M video, which is convenient for color grading later. Graphic Transfer Performance. DJlAir 2S uses 03(0cusync 3.0) mapping technology with built-in 4 antennas.",
       "details": "Model's height: 176 cm The model is wearing size: S/36 This skirt is designed to fall just below the knee, offering a flattering length that is suitable for various occasions. It is made from a soft and lightweight fabric that drapes beautifully, ensuring comfort and ease of movement. The blue color adds a vibrant touch, making it a standout piece in your wardrobe:  fitted waistband fastened with a hidden zipper midi length",
       "imagesProduct": [
@@ -167,19 +196,30 @@
         }
       ]
     },
-
     {
-      "id": 6,
+      "id": "6",
       "img-url": {
         "src": "https://img01.71360.com/w3/xe5j03/20241105/5395981e2e454c181c46259bf8d55d58.jpg?ct=webp",
         "alt": ""
       },
       "name": "DJI Mavic 3",
+      "sales": 2,
+      "stock": 10,
       "price": "670$",
-      "rate": [3, 5],
+      "rate": [
+        3,
+        5
+      ],
       "categorie": "Laptops et ses accesoires",
-      "colors": ["white", "gray"],
-      "sizes": ["SM", "M", "L"],
+      "colors": [
+        "white",
+        "gray"
+      ],
+      "sizes": [
+        "SM",
+        "M",
+        "L"
+      ],
       "Description": "Gimbal Camera Performance DJ Mavic 3 is equipped with a main camera, Hasselblad L2D-20c, featuring 4/3 CMOS with 20 megapixels of effective pixels, supporting native 12.8 stops of dynamic range and variable aperture from f/2.8 to f/11, and stabilizing 5.1K50 fps/DCI 4K 120 fps in Apple ProRes 422 HQ* format or H.264/H.265 format Ultra HD video.",
       "details": "Model's height: 176 cm The model is wearing size: S/36 This skirt is designed to fall just below the knee, offering a flattering length that is suitable for various occasions. It is made from a soft and lightweight fabric that drapes beautifully, ensuring comfort and ease of movement. The blue color adds a vibrant touch, making it a standout piece in your wardrobe:  fitted waistband fastened with a hidden zipper midi length",
       "imagesProduct": [
@@ -189,6 +229,43 @@
         },
         {
           "src": "https://img01.71360.com/w3/xe5j03/20241105/2ce6eebb7aa9c33bd4fac8d51a3642bc.jpg?ct=webp",
+          "alt": ""
+        }
+      ]
+    },
+    {
+      "id": "11",
+      "img-url": {
+        "src": "https://m.media-amazon.com/images/I/51lV1SiVkGL._AC_SX466_.jpg",
+        "alt": ""
+      },
+      "name": "Apple Watch Series 8 (GPS, 45mm) Green Aluminum Case with Clover Sport Band, Regular (Renewed)",
+      "sales": 2,
+      "stock": 10,
+      "price": "50$",
+      "rate": [
+        4,
+        76
+      ],
+      "categorie": "Cameras et Headphones et Watches",
+      "colors": [
+        "black",
+        "green",
+        "pink"
+      ],
+      "sizes": [
+        "4G",
+        "8G"
+      ],
+      "Description": "Made from high-quality denim fabric, this midi skirt offers durability and comfort for all-day wear. The mid-length design strikes the perfect balance between casual and chic, making it suitable for various occasions, from casual outings to semi-formal events.               One of the standout features of this skirt is its functional pockets. With two spacious pockets at the front, you can conveniently carry your essentials such as keys, phone, or wallet without the need for a bulky bag. The pockets also add a touch of utility and flair to the overall look.",
+      "details": "Model's height: 176 cm The model is wearing size: S/36 This skirt is designed to fall just below the knee, offering a flattering length that is suitable for various occasions. It is made from a soft and lightweight fabric that drapes beautifully, ensuring comfort and ease of movement. The blue color adds a vibrant touch, making it a standout piece in your wardrobe:  fitted waistband fastened with a hidden zipper midi length",
+      "imagesProduct": [
+        {
+          "src": "https://m.media-amazon.com/images/I/515sNC7slRL._AC_SY741_.jpg",
+          "alt": ""
+        },
+        {
+          "src": "https://m.media-amazon.com/images/I/61C2qwopuLL._AC_SY679_.jpg",
           "alt": ""
         }
       ]

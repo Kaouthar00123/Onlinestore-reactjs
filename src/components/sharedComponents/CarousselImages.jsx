@@ -13,7 +13,7 @@ export default function CarousselImages(props) {
           <img
             src={image.src}
             alt={image.alt}
-            className={`h-full w-full object-cover overflow-hidden transition-all ${
+            className={`h-full w-full object-scale-down overflow-hidden transition-all ${
               zoomIn ? "scale-125 cursor-zoom-out" : "scale-100 cursor-pointer"
             }`}
             onClick={() => setzoomIn(!zoomIn)}
